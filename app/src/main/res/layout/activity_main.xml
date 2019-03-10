@@ -30,6 +30,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:text="@string/send"
+        android:onClick="sendMessage"
         app:layout_constraintBaseline_toBaselineOf="@+id/editText"
         app:layout_constraintStart_toEndOf="@+id/editText" />
 
