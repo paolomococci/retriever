@@ -22,7 +22,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class SampleTests {
+public class SampleUnitTests {
 
     @Test
     public void firstTest() {
