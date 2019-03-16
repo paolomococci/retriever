@@ -18,13 +18,14 @@
 
 package local.example.retriever;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class ShowMessageActivity extends AppCompatActivity {
+public class ShowMessageActivity
+        extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
