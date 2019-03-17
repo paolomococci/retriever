@@ -25,6 +25,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import static local.example.retriever.R.id.edit_text;
+
 public class MainActivity
         extends AppCompatActivity {
 
@@ -38,7 +40,7 @@ public class MainActivity
 
     public  void sendMessage(View view) {
         Intent intent = new Intent(this, ShowMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.editText);
+        EditText editText = (EditText) findViewById(edit_text);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
