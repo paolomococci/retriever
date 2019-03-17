@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "local.example.retriever"
-        minSdkVersion 15
+        minSdkVersion 18
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -18,6 +18,7 @@ android {
     }
     testOptions {
         unitTests.includeAndroidResources = true
+        unitTests.returnDefaultValues = true
     }
 }
 
@@ -30,6 +31,7 @@ dependencies {
     implementation 'com.google.errorprone:error_prone_annotations:2.3.3'
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.25.1'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
     androidTestImplementation 'com.google.truth:truth:0.43'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1-alpha02'
     androidTestImplementation 'androidx.test.ext:truth:1.2.0-alpha02'
