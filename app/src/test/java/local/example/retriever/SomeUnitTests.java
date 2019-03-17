@@ -18,9 +18,23 @@
 
 package local.example.retriever;
 
+import android.content.Context;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
 public class SomeUnitTests {
 
     private static final String CLASSIC_HELLO = "Hello World!";
 
+    @Mock
+    Context mockContext;
 
+    @Test
+    public void firstTest() {
+
+    }
 }
