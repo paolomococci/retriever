@@ -24,6 +24,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import static local.example.retriever.R.id.text_view;
+
 public class ShowMessageActivity
         extends AppCompatActivity {
 
@@ -33,7 +35,7 @@ public class ShowMessageActivity
         setContentView(R.layout.activity_show_message);
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        TextView textView = findViewById(R.id.textView);
+        TextView textView = findViewById(text_view);
         textView.setText(message);
     }
 }
