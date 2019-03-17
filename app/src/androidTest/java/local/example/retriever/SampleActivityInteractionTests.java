@@ -18,7 +18,6 @@
 
 package local.example.retriever;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +26,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
@@ -39,15 +39,8 @@ public class SampleActivityInteractionTests {
     public ActivityScenarioRule<MainActivity>
             activityScenario = new ActivityScenarioRule<>(MainActivity.class);
 
-    private MainActivity mainActivity;
-
-    @Before
-    public void setUp() {
-
-    }
-
     @Test
     public void interactionTypedTests() {
-        onView(withId(R.id.editText)).perform(typeText(TO_BE_TYPED));
+        onView(withId(R.id.editText)).perform(clearText(), typeText(TO_BE_TYPED));
     }
 }
