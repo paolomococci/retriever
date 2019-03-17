@@ -1,0 +1,72 @@
+/**
+ *
+ * Copyright 2019 paolo mococci
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * 	   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package local.example.retriever;
+
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.filters.LargeTest;
+import androidx.test.rule.ActivityTestRule;
+
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.clearText;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+
+@LargeTest
+@RunWith(AndroidJUnit4.class)
+public class TypedTextUserInterfaceTests {
+
+    /* remember to switch on the screen on testing device */
+
+    private String toBeTyped;
+
+    @Rule
+    public ActivityTestRule<MainActivity>
+            mainActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+
+    @Before
+    public void setUp() {
+        toBeTyped = "I would like an truly italian espresso.";
+        mainActivityTestRule.getActivity().getSupportFragmentManager().beginTransaction();
+    }
+
+    @Test
+    public void clearedAndTypedTest() {
+        onView(withId(R.id.editText)).check(matches(isDisplayed()));
+        onView(withId(R.id.editText)).perform(clearText(),
+                typeText("some text"), closeSoftKeyboard());
+    }
+
+    @Test
+    public void anotherTypedTest() {
+        onView(withId(R.id.editText)).perform(clearText(), typeText(toBeTyped),
+                closeSoftKeyboard());
+        onView(withId(R.id.editText)).perform(click());
+        onView(withId(R.id.editText)).check(matches(withText(toBeTyped)));
+    }
+}
