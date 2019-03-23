@@ -10,19 +10,21 @@
     <EditText
         android:id="@+id/edit_text"
         android:labelFor="@id/edit_text"
+        android:text="@string/edit_message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/edit_message"
         android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/button"
@@ -31,6 +33,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:text="@string/button_send"
+        android:onClick="sendMessage"
         app:layout_constraintBaseline_toBaselineOf="@+id/edit_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
